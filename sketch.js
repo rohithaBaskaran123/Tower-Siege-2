@@ -7,9 +7,10 @@ const Body = Matter.Body;
 
 var slingshot;
 var score=0;
-
+var bg;
 function preload(){
 ply_img = loadImage("polygon.png");
+getBackgroundImg();
 }
 function setup(){
     createCanvas(800,400);
@@ -58,7 +59,10 @@ World.add(world,polygon);
 }
 
 function draw(){
-    background("black");
+    if(bg){
+        background(bg);
+    }
+    
     
     Engine.update(engine);
     fill("white");
@@ -148,10 +152,10 @@ async function getBackgroundImg(){
     var datetime = responseJSON.datetime;
     var hour = datetime.slice(11,13);
     
-    if(hour>=0600 && hour<=1900){
-       background("orange");
+    if(hour>=06 && hour<17){
+       bg="orange";
     }
     else{
-       background("black")
+       bg="black";
     }
 }
