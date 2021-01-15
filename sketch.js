@@ -59,11 +59,11 @@ World.add(world,polygon);
 
 function draw(){
     background("black");
-    text("Score "+score, width,750,40)
+    
     Engine.update(engine);
     fill("white");
-    text ("Drag the Hexagonal stone and then release it to hit the blocks",75,50);
-    
+    text ("Drag the Hexagonal stone and then release it to hit the blocks.                                            Press the space bar to get another chance",75,50);
+    text("Score= "+score,75,75);
     slingshot.display();
     fill ("lightblue");
     block8.display();
@@ -102,11 +102,10 @@ function draw(){
     block24.score();
     fill ("lightpink");
     block25.display();
+    
+    block25.score();
     ground1.display();
     ground2.display();
-    block25.score();
-    ground1.score();
-    ground2.score();
 fill ("turquoise");
     block26.display();
     block27.display();
@@ -143,7 +142,7 @@ function keyPressed(){
 }
 
 async function getBackgroundImg(){
-    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+    var response = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles");
     var responseJSON = await response.json();
 
     var datetime = responseJSON.datetime;
