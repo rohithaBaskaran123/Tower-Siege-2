@@ -1,6 +1,6 @@
 class Box {
     constructor(x,y,width,height) {
-     
+      this.Visiblity = 5;
       var options = {
           isStatic: false,
       }
@@ -11,17 +11,18 @@ class Box {
     }
     display(){
       var ps =this.body.position;
-      rectMode(CENTER);
-      
+      rectMode(CENTER);      
       if(this.body.speed < 3){
-        rect(ps.x, ps.y, this.width, this.height);  
+        rect(ps.x, ps.y, this.width,this.height);
        }
        else{
         World.remove(world, this.body);
+        this.Visiblity = this.Visiblity - 5;
+        
       }
     }
     score(){
-      if(this.visibility<0 && this.visibility>-105){
+      if(this.Visiblity<0 && this.Visiblity>-105){
         score++
       }
     }
